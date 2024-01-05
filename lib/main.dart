@@ -2,16 +2,15 @@
 import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:play_audio_widget_of_week/firstWeek/app.dart';
 import '2thweek/widget_2th_week.dart';
- 
- ///[MyAppFirstWeek]
+
 // void main() {
 //   WidgetsFlutterBinding.ensureInitialized();
  
 //   runApp( const MyAppFirstWeek());
 // }
-////[ExampleAlarmHomeScreen]
+////[]
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
