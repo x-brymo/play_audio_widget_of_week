@@ -1,6 +1,7 @@
 import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
-
+import 'package:audioplayers/audioplayers.dart';
+import 'package:file_picker/file_picker.dart';
 class ExampleAlarmHomeShortcutButton extends StatefulWidget {
   final void Function() refreshAlarms;
 
@@ -14,7 +15,22 @@ class ExampleAlarmHomeShortcutButton extends StatefulWidget {
 
 class _ExampleAlarmHomeShortcutButtonState
     extends State<ExampleAlarmHomeShortcutButton> {
-  bool showMenu = false;
+  bool showMenu = false; 
+  AudioPlayer _audioPlayer = AudioPlayer();
+  String _audioFilePath = '';
+
+  Future<void> pickAudio() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.audio,
+      allowMultiple: false,
+    );
+
+    if (result != null) {
+      setState(() {
+        _audioFilePath = result.files.single.path!;
+      });
+    }
+  }
 
   Future<void> onPressButton(int delayInHours) async {
     DateTime dateTime = DateTime.now().add(Duration(hours: delayInHours));
@@ -24,13 +40,13 @@ class _ExampleAlarmHomeShortcutButtonState
       dateTime = dateTime.copyWith(second: 0, millisecond: 0);
       volume = 0.5;
     }
-
+    
     setState(() => showMenu = false);
 
     final alarmSettings = AlarmSettings(
       id: DateTime.now().millisecondsSinceEpoch % 10000,
       dateTime: dateTime,
-      assetAudioPath: 'assets/marimba.mp3',
+      assetAudioPath:"asset/audio/ring.mp3" ,
       volume: volume,
       notificationTitle: 'Alarm example',
       notificationBody:
@@ -55,6 +71,17 @@ class _ExampleAlarmHomeShortcutButtonState
             backgroundColor: Colors.red,
             heroTag: null,
             child: const Text("RING NOW", textAlign: TextAlign.center),
+          ),
+        ),
+        GestureDetector(
+          onLongPress: () {
+            setState(() => showMenu = true);
+          },
+          child: FloatingActionButton(
+            onPressed:pickAudio,
+            backgroundColor: Colors.red,
+            heroTag: null,
+            child: const Text(" SELECT RING ", textAlign: TextAlign.center),
           ),
         ),
         if (showMenu)

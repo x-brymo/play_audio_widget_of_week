@@ -32,7 +32,7 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
       loopAudio = true;
       vibrate = true;
       volume = null;
-      assetAudio = 'assets/marimba.mp3';
+      assetAudio = 'asset/audio/ring.mp3';
     } else {
       selectedDateTime = widget.alarmSettings!.dateTime;
       loopAudio = widget.alarmSettings!.loopAudio;
@@ -207,23 +207,23 @@ class _ExampleAlarmEditScreenState extends State<ExampleAlarmEditScreen> {
                 value: assetAudio,
                 items: const [
                   DropdownMenuItem<String>(
-                    value: 'assets/marimba.mp3',
+                    value: "asset/audio/ring.mp3",
                     child: Text('Marimba'),
                   ),
                   DropdownMenuItem<String>(
-                    value: 'assets/nokia.mp3',
+                    value: 'asset/audio/ring.mp3',
                     child: Text('Nokia'),
                   ),
                   DropdownMenuItem<String>(
-                    value: 'assets/mozart.mp3',
+                    value: 'asset/audio/ring.mp3',
                     child: Text('Mozart'),
                   ),
                   DropdownMenuItem<String>(
-                    value: 'assets/star_wars.mp3',
+                    value: 'asset/audio/ring.mp3',
                     child: Text('Star Wars'),
                   ),
                   DropdownMenuItem<String>(
-                    value: 'assets/one_piece.mp3',
+                    value: 'asset/audio/ring.mp3',
                     child: Text('One Piece'),
                   ),
                 ],
