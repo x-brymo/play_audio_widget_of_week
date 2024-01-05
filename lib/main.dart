@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '2thweek/widget_2th_week.dart';
-
+ 
+ ///[MyAppFirstWeek]
 // void main() {
 //   WidgetsFlutterBinding.ensureInitialized();
  
 //   runApp( const MyAppFirstWeek());
 // }
-////[]
+////[ExampleAlarmHomeScreen]
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
