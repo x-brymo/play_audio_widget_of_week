@@ -4,6 +4,8 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_windows
+  firebase_auth
+  firebase_core
   media_kit_libs_windows_video
   media_kit_video
   permission_handler_windows
